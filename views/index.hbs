@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 100%;
+            height: auto;
+            display: flex;
+            position: absolute;
+            top: 0vh;
+        }
+        .div{
+            width: 100%;
+            height: 20vh;
+            display: flex;
+            background-color: black;
+            color: white;
+            font-size: 30px;
+        }.id{
+            flex: 0.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .Title{
+            flex: 0.4; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .Type{
+            flex: 0.4;
+             display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    {{!-- <h1>HBS added</h1> --}}
+    <div class="div">
+           <div class="id">
+               Product-Id
+           </div>
+           <div class="Title">
+               Product-Title
+           </div>
+           <div class="Type">
+               Product-Type
+           </div>
+       </div>
+    <div class="main" id="main">
+       
+
+    </div>
+    <script>
+        var strm1 = `{{str1}}` ;
+        strm1 = strm1.split("+");
+        var strm2 = `{{str2}}` ;
+        var strm3 = `{{str3}}` ;
+        strm2 = strm2.split("+");
+        strm3 = strm3.split("+");
+        console.log(strm3);
+        
+     const myId = document.createElement("div");
+     myId.style.flex="0.2";
+     myId.style.marginRight="80px";
+     myId.style.display="flex";
+     myId.style.alignItems="centre";
+     myId.style.justifyContent="centre";
+     myId.style.flexDirection="column-reverse";
+     const myTitle = document.createElement("div");
+     myTitle.style.flex="0.4";     
+     myTitle.style.display="flex";
+     myTitle.style.alignItems="centre";
+     myTitle.style.justifyContent="centre";
+     myTitle.style.flexDirection="column-reverse";
+     const myImage = document.createElement("div");
+     myImage.style.flex="0.4";
+     
+     myImage.style.marginLeft="100px";
+     myImage.style.display="flex";
+     myImage.style.alignItems="centre";
+     myImage.style.justifyContent="centre";
+     myImage.style.flexDirection="column-reverse";
+     
+     strm1.map((item,i)=>{
+         const h2 = document.createElement("h2");
+         h2.style.width="100%";
+         h2.style.height="30vh";
+         h2.style.display="flex";
+         h2.style.alignItems="centre";
+         h2.style.justifyContent="centre";
+         h2.innerHTML = item + "<br>" ;
+         myId.appendChild(h2);
+     })
+     strm2.map((item,i)=>{
+         const h2 = document.createElement("h2");
+         h2.style.width="100%";
+         h2.style.height="30vh";
+         h2.style.display="flex";
+         h2.style.alignItems="centre";
+         h2.style.justifyContent="centre";
+         h2.innerHTML = item + "<br>" ;
+         myTitle.appendChild(h2);
+     })
+     strm3.map((item,i)=>{
+         const h2 = document.createElement("h2");
+         h2.style.width="100%";
+         h2.style.height="30vh";
+         h2.style.display="flex";
+         h2.style.alignItems="centre";
+         h2.style.justifyContent="centre";
+         h2.innerHTML = `${item}` ;
+         myImage.appendChild(h2);
+     })
+     document.getElementById("main").appendChild(myId);
+     document.getElementById("main").appendChild(myTitle);
+     document.getElementById("main").appendChild(myImage);
+
+     console.log(strm3);
+    </script>
+</body>
+</html>
+
+
+
+
